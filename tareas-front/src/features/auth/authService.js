@@ -8,9 +8,26 @@ const register = async(userData) => {
     return response.data
 }
 
+//Login
+const login = async(userData) => {
+    const response = await axios.post(API_URL+ 'login',userData)
+    if(response.data) {
+        // Practicar para ponerlo en el sesionStorage esto es para almacenar los datos
+        localStorage.setItem('user', JSON.stringify(response.data))
+    }
+    return response.data
+}
+
+//Logout user
+const logout = async () => {
+    localStorage.removeItem('user')
+
+}
 
 const authService = {
-    register
+    register,
+    login,
+    logout
 }
 
 export default authService
