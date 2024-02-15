@@ -1,0 +1,15 @@
+#Dockerfile para el frontend (React)
+#Node.js imagen oficial
+FROM node:14
+#Directorio
+WORKDIR /app
+#Copiar package.json & package-lock.json en el Directorio
+COPY package*.json ./
+#Instalar paquetes 
+RUN npm install
+#Copiar codigo fuente
+COPY . . 
+#Puerto a utilizar
+EXPOSE 3000
+#Comando a ejecutar al iniciar contenedor
+CMD ["npm", "start"]

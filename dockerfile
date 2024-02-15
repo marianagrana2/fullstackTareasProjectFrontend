@@ -1,1 +1,0 @@
-#Dockerfile para el frontend (React)
